@@ -9,8 +9,7 @@ void check (bool condition, const std::string& msg) {
   if (condition) {
     passed++;
     std::cout << Color::green << Color::bold << "OK" << std::endl << Color::normal;
-  }
-  else {
+  } else {
     failed++;
     std::cout << Color::red << Color::bold << "!OK" << std::endl << Color::normal;
   }

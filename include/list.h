@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include "node.h"
 
+// TO DELETE
 #include <iostream>
 
 template <typename Tr>
@@ -22,12 +23,12 @@ public:
   List(): head(nullptr) {};
 
   bool find (T search, Node <T> ** pointer) {
-    Node <T>* cur = *pointer;
-    while (cur and cur -> data != search) cur = cur -> next;
-    return cur;
+    while (*pointer and (*pointer) -> data != search) pointer = &((*pointer) -> next);
+    return *pointer; 
   }
 
   bool insert (T data) {
+    if (find(data, &(this -> head))) return false;
     Node <T>* newNode = new Node <T> (data);
     if (not head) {
       this -> head = newNode;
